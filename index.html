@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Concrete Cowboys: Shelter from the Noise</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 30px 20px;
+      background: linear-gradient(45deg, #ff0080, #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h1 {
+      font-size: 3em;
+      text-transform: uppercase;
+    }
+    h2 {
+      color: #ff66cc;
+      text-shadow: 0 0 8px #00bfff;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2em;
+    }
+    .scene-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 40px auto;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .scene-container img {
+      max-width: 45%;
+      border: 4px solid #ff66cc;
+      box-shadow: 0 0 20px #00bfff;
+      border-radius: 10px;
+    }
+    .scene-container .scene-text {
+      max-width: 50%;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      text-align: justify;
+    }
+    audio {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+    }
+    nav {
+      text-align: center;
+      margin: 20px;
+    }
+    nav a {
+      color: #00bfff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 5px #ff0080;
+    }
+    .download-btn {
+      display: block;
+      width: fit-content;
+      margin: 20px auto;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: #fff;
+      background: linear-gradient(90deg, #ff0080, #00bfff);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px #ff66cc;
+      transition: all 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+    .download-btn:hover {
+      box-shadow: 0 0 30px #00bfff;
+      transform: scale(1.05);
+    }
+
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .image-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 3px solid #00bfff;
+      border-radius: 12px;
+      box-shadow: 0 0 40px #ff66cc;
+      cursor: zoom-out;
+    }
+    
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+      pointer-events: none;
+    }
+    .nav-arrow {
+      background: rgba(255, 102, 204, 0.7);
+      color: white;
+      border: none;
+      font-size: 2em;
+      padding: 10px 20px;
+      cursor: pointer;
+      pointer-events: auto;
+      border-radius: 5px;
+    }
+    .slide-counter {
+      position: absolute;
+      bottom: 20px;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      background: rgba(0,0,0,0.6);
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+   .audio-label {
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-family: 'Courier New', Courier, monospace; /* Typewriter/Studio feel */
+      font-size: 0.9rem;
+      color: #ffcc00; /* Amber/Yellow to match your 'Dirt Club' neon theme */
+      border-left: 3px solid #ffcc00;
+      padding-left: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Concrete Cowboys</h1>
+    <h2>Shelter from the Noise – A New Rock Musical</h2>
+  </header>
+
+  <nav>
+    <div style="margin-bottom: 15px;">
+      <span style="color: #ff66cc; font-weight: bold; margin-right: 10px;">ACT ONE:</span>
+      <a href="#scene1">Scene 1</a> <a href="#scene2">Scene 2</a> <a href="#scene3">Scene 3</a> <a href="#scene4">Scene 4</a> <a href="#scene5">Scene 5</a> <a href="#scene6">Scene 6</a> <a href="#scene7">Scene 7</a> <a href="#scene8">Scene 8</a> <a href="#scene9">Scene 9</a> 
+    </div>
+    <div>
+      <span style="color: #ff66cc; font-weight: bold; margin-right: 10px;">ACT TWO:</span>
+      <a href="#scene10">Scene 10</a> <a href="#scene11">Scene 11</a> <a href="#scene12">Scene 12</a> <a href="#scene13">Scene 13</a> <a href="#scene14">Scene 14</a> 
+    </div>
+  </nav>
+
+  <section id="scene1">
+    <h2>SCENE 1 – BEFORE THE CITY</h2>
+    <div class="scene-container">
+      <img src="images/image01.jpg" alt="Scene 1 image">
+      <div class="scene-text">
+        <p>In a New Jersey campground, the dawn of 1980 finds the broke rock band Concrete Cowboys waking under a tarp, fueled by raw ambition and internal friction. Driven guitarist Max Watts obsesses over a legendary New York breakthrough, while disillusioned drummer Tommy O’Neil battles deep uncertainty. Their fragile unity, anchored by the optimistic Chino, is electrified when roadie Knute secures a career-defining gig at CBGB’s. Onstage, this gritty desperation transforms into a sonic explosion, as the blistering punk rock opener “Shelter from the Noise” propels their small-town dreams into the city’s dangerous, neon-lit battlefield.</p>
+        <h4 class="audio-label">SHELTER FROM THE NOISE</h4>
+        <audio controls><source src="audio/song01.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene2">
+    <h2>SCENE 2 – THREE CHORDS AND A PRAYER</h2>
+    <div class="scene-container">
+      <img src="images/image02.jpg" alt="Scene 2 image">
+      <div class="scene-text">
+        <p>Welcome to the Bowery, where the glitter’s gone but the grit is fabulous! In Scene 2, our boys hit the iconic CBGB, only to find the Park Ranger transformed into a sassy, street-worn Hot Dog Guy. While Max is busy being optimistic about their big break, a betrayal leaves them penniless and panicked. Watch as the stage explodes into a neon-soaked nightmare when the Hot Dog Guy belts out "You’re No Rock Star," mocking their rock-and-roll delusions with high-energy, campy flair. Can they survive the Bowery’s bite?</p>
+        <h4 class="audio-label">YOU’RE NO ROCK STAR</h4>
+        <audio controls><source src="audio/song02.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene3">
+    <h2>SCENE 3 – NOT YET NOT HERE</h2>
+    <div class="scene-container">
+      <img src="images/image03.jpg" alt="Scene 3 image">
+      <div class="scene-text">
+        <p>In the avant-garde shadows of the Mudd Club, the Concrete Cowboys face an industry trial where the stakes are as high as the hair. The legendary Paul Atkinson—Zombies guitarist turned elite kingmaker—answers a cheeky "subpoena" invitation, putting the band’s raw talent under a professional microscope. The air is thick with 1980s cool, but the atmosphere turns icy as a polished performance is met with the crushing weight of a "polite" rejection. It is a high-drama underdog moment that blends sophisticated style with the spectacle of heartbreak, pivoting the story away from Manhattan’s elite and toward the gritty, high-volume redemption of the Jersey circuit.</p>
+        <h4 class="audio-label">THE TIDE IS TURNING</h4> 
+        <audio controls><source src="audio/song03.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+</section>
+
+  <section id="scene4">
+    <h2>SCENE 4 – NO MEANS PLAY LOUDER</h2>
+    <div class="scene-container">
+      <img src="images/image04.jpg" alt="Scene 4 image">
+      <div class="scene-text">
+        <p>Crossing the river into New Jersey, the band lands at the Dirt Club, a gothic rock-and-roll circus where "no" just means "turn it up." Barely scraping by, Max, Tommy, and Chino practice "poverty science," sharing a single shot of whiskey through three straws to make the buzz last. The atmosphere shifts from desperation to inspiration when the theatrical Johnny Dirt and Bartender Debbie challenge them to stop whispering and embrace the loud, unapologetic Jersey way.  When MAX gets the idea for the band to adopt a bold "Hollywood Cowboy" persona, Johnny and Debbie encourage them with their hard-grooving rocker “Get It Done.” It’s a gritty, neon-lit celebration of raw nerve over polish, proving that sometimes a scream is the only prayer a band has left.</p>
+        <h4 class="audio-label">GET IT DONE</h4>
+        <audio controls><source src="audio/song04.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene5">
+    <h2>SCENE 5 – THE QUIET QUESTION</h2>
+    <div class="scene-container">
+      <img src="images/image05.jpg" alt="Scene 5 image">
+      <div class="scene-text">
+        <p>In the quiet solitude of the campground, the relentless roar of the city fades into a haunting stillness. Tommy, isolated and nursing his doubts, is suddenly joined by the ethereal Ghost Debbie—a vision only he and the audience can perceive. This supernatural encounter strips away the rock-and-roll bravado to reveal a soul in crisis. Tommy remembers when Max promised to make him a rock star.  As they bridge the gap between the living and the lost, their voices entwine in the powerful duet "When I Dream." It’s a breathtaking, spectral spectacle that explores the restlessness of fame and the search for identity, proving that the most profound music often happens in the silence between the notes.</p>
+        <h4 class="audio-label">WHEN I CAN DREAM</h4>
+        <audio controls><source src="audio/song05.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene6">
+    <h2>SCENE 6 – THE PROVING GROUND</h2>
+    <div class="scene-container">
+   <div style="display: flex; flex-direction: column; gap: 20px; max-width: 45%;">        
+        <img src="images/image06b.jpg" alt="Scene 06b image" style="max-width: 100%;">
+      </div>
+      <div class="scene-text">
+        <p>In the gritty, echoing backstage of Hitsville, the band is trapped in the "proving ground"—that restless purgatory between obscurity and legend. While waiting to open for the L.A. punk icons X, the scene shifts into a cinematic flashback of their chaotic trek East in a camouflaged Wonder Bread truck. From the perilous breakfasts of Wyoming to the hallowed, reflective grounds of Gettysburg, the road trip serves as a high-stakes meditation on their survival. The spectacle reaches a fever pitch when Tommy’s gear is stolen, sparking a fierce confrontation that proves their grit. This explosive journey through memory and ambition culminates in the defiant anthem "We Are the Ones," where every mile traveled becomes fuel for their rock-and-roll fire.</p>
+        <h4 class="audio-label">WE ARE THE ONES</h4>
+        <audio controls><source src="audio/song06.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene7">
+    <h2>SCENE 7 – FAVORS AND FALLOUT</h2>
+    <div class="scene-container">
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 45%;">
+        <img src="images/image07.jpg" alt="Scene 07 image" style="max-width: 100%;">
+    </div> 
+    <div class="scene-text">
+	<p>A warm reggae pulse drifts through the backstage shadows, signaling a moment of deceptive calm. While the rest of the band follows a road manager toward a late-night party, Tommy is confronted by Knute with a dangerous shortcut—a small foil package promising an easy escape. The stakes turn supernatural as Ghost Debbie reappears, warning Tommy that shortcuts only lead to places he doesn't want to go. This internal tug-of-war between sobriety and the rock-and-roll lifestyle sets the stage for a high-octane opening slot for The Stray Cats. The night explodes into "Shake That Shadow," a rockabilly spectacle where the band slinks and snarls through the dark, trying to outrun the fallout of their own choices.</p>
+        <h4 class="audio-label">SHAKE THAT SHADOW</h4>
+        <audio controls><source src="audio/song07.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene8">
+    <h2>SCENE 8 – THE BILL COMES DUE</h2>
+    <div class="scene-container">
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 45%;">
+        <img src="images/image08.jpg" alt="Scene 08 image" style="max-width: 100%;">        
+    </div>
+    <div class="scene-text">
+      <p>Nothing in New York is free. Not studio time. Not influence. Not advancement. The band faces the financial and emotional debt accumulated chasing acceleration. Arguments sharpen. Old sacrifices resurface. While Max remains optimistic, meticulously cleaning his guitar for the next battle, Ghost Debbie’s haunting influence forces Tommy to confront the wreckage of his choices and the heavy cost of Max's ambition. It is a cinematic turning point where the grit of the road meets a supernatural reckoning. As the internal fracture between the two friends deepens the stage dims for the soul-baring performance of "Empty Glasses" strips away the neon to reveal the exhaustion of chasing shadows, proving that the bill has finally come due—and the price is their very own brotherhood.</p>
+        <h4 class="audio-label">EMPTY GLASSES</h4>
+        <audio controls><source src="audio/song08.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene9">
+    <h2>SCENE 9 – THE DIRTY DEAL</h2>
+    <div class="scene-container">
+      <img src="images/image09.jpg" alt="Scene 9 image">
+      <div class="scene-text">
+        <p>The stakes reach a fever pitch as Act One closes at the Dirt Club, where the line between "making it" and selling out blurs. The band is flying high when legendary producer Mark Kamins—the man who discovered Madonna—appears like a rock-and-roll prophet. Alongside Johnny Dirt, Kamins offers a "Dirty Deal," promising to turn their raw grit into a polished fantasy. While Max is ready to strike like lightning, the haunting Ghost Debbie lingers over Tommy, sensing the dangerous price of this overnight transformation. The stage explodes into a high-octane finale of ambition and manipulation—a cliffhanger proving that labels don’t sign bands; they sign fantasies!</p>
+        <h4 class="audio-label">GET IT DONE-REPRISE</h4>
+        <audio controls><source src="audio/song09.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+<h2 class="intermission">INTERMISSION</h2>
+
+  <section id="scene10">
+    <h2>SCENE 10 – WHEN THE SONG CHANGES</h2>
+    <div class="scene-container">
+      <h4 class="audio-label">EMPTY GLASSES (MAX)</h4>
+      <audio controls><source src="audio/song10.mp3" type="audio/mpeg"></audio>
+    <img src="images/image10.jpg" alt="Scene 10 image">
+      <div class="scene-text">
+        <p>Act Two opens on the Jersey Shore, where the salt air heightens a clash over the band’s future. The trio grapples with their identity as Max champions the operatic "thunder" of Jim Steinman, while Tommy fights for the raw, jagged truth of The Clash. The conflict centers on Tommy’s weathered jacket; Max wants a polished image for their upcoming Meadowbrook headline, but Tommy refuses to trade authenticity for a look. It’s a battle of vision—Steinman’s lightning versus Strummer’s nerve. As the temperature drops, they realize they aren't just fighting over a jacket, but for the very soul of their music.</p>
+        </div>
+    </div>
+  </section>
+ 
+<section id="scene11">
+    <h2>SCENE 11 – THE SCREEN AGE</h2>
+    <div class="scene-container">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 45%;">
+        <img src="images/image11b.jpg" alt="Scene 11b image" style="max-width: 100%;">
+        <img src="images/image11a.jpg" alt="Scene 11a image" style="max-width: 100%;">
+      </div>
+      <div class="scene-text">
+        <p>
+          The music world shifts overnight as white work lights snap on, exposing the gritty alleyway as a curated soundstage. 
+          The Concrete Cowboys find themselves at the dawn of the MTV revolution, being repositioned by a frantic film crew 
+          for their first music video. While Max embraces the "Hollywood Cowboy" persona, proudly adjusting his hat for the lens, 
+          Tommy resists the artificiality of the "Screen Age," feeling like a rebel caught in a digital trap.
+        </p>       
+        <h4 class="audio-label">FLICKER & GLOW </h4>
+        <audio controls>
+          <source src="audio/song11A.mp3" type="audio/mpeg">
+        </audio>
+
+        <p>
+          The Narrator transforms into a high-energy Director, hoisting a camera to capture this new digital insurrection where 
+          image is king. The scene culminates in the explosive ensemble anthem, "Screen Age Anthem," a high-octane spectacle 
+          celebrating the transition from the underground to the mainstream. As the fashion gets louder and the hair gets higher, 
+          the band rides a flickering fury of sound and vision, realizing there is no turning back the clock on this new, televised reality.
+        </p>
+        
+        <h4 class="audio-label">SCREEN AGE ANTHEM </h4>
+        <audio controls>
+          <source src="audio/song11B.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+</section>
+
+  <section id="scene12">
+    <h2>SCENE 12 – THE GILDED CAGE</h2>
+    <div class="scene-container">
+      <img src="images/image12.jpg" alt="Scene 12 image">
+      <div class="scene-text">        
+        <p>In the hollow, dimly lit ruins of Studio 54, the glitter has turned to dust. The band has reached new heights, but for Tommy, the victory feels like a total surrender. While Chino and Max chase the fading echoes of decadence, Tommy stands amidst the velvet and shadows, realizing their dream has become a gilded trap.
+The atmosphere shifts from backstage grit to raw, piercing heartbreak as the world outside shatters. A radio’s whisper replays the news of a fallen legend, and the silence that follows is deafening. Tommy takes the stage alone for a soul-shattering ballad, a cry in the night for lost idols and broken reflections. It is a moment of profound isolation where the music stops being a business and becomes a scream, leaving the future hanging by a single, desperate thread.
+</p>
+        <h4 class="audio-label">THE LIGHTS WENT OUT</h4>
+        <audio controls><source src="audio/song12.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+ 
+  <section id="scene13">
+    <h2>SCENE 13 – ONE FOOT IN THE FUTURE</h2>
+    <div class="scene-container">
+      <img src="images/image13.jpg" alt="Scene 13 image">
+      <div class="scene-text">
+        <p>In the fluorescent chaos of the New Music Seminar, the grief of a fallen legend transforms into a gritty rebirth. No longer chasing industry prophets, the Concrete Cowboys take control of their own signal. Amidst a sea of business cards and independent records, Tommy finds a moment of clarity while sharing a beer with his idol, Blondie drummer Clem Burke. This encounter provides the spark for a new direction—one where authenticity isn't a costume. The show culminates in a defiant reprise of "We Are the Ones," a glorious replay of victory. With one foot in the future, the band finally finds their own beat.</p>
+        <h4 class="audio-label">WE ARE THE ONES-REPRISE</h4>
+        <audio controls><source src="audio/song13.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+   <section id="scene14">
+    <h2>SCENE 14 – BREAK EVERY CHAIN (Finale)</h2>
+    <div class="scene-container">
+      <img src="images/image14.jpg" alt="Scene 14 image">
+      <div class="scene-text">
+        <p>The journey peaks at the sold-out Meadowbrook Ballroom, where the Ranger reflects on the endurance of a great song’s soul. For the Concrete Cowboys, all the grinding has lead to this reclamation of the heart. Joined by the entire cast, the stage ignites with "Break Every Chain," a high-octane finale where Tommy, Max, Chino, and Ghost Debbie unite in a defiant explosion of sound.  Moving past "Dirty Deals" and hollow promises, they finally claim their own name. 
+As the anthem peaks, the spectacle shifts toward a profound emotional triumph. Tommy finds clarity,  realizing true victory is the strength to own his path. As the lights fade to a warm, somber glow, the band stands united in spirit even as the road changes forever.
+</p>
+        <h4 class="audio-label">BREAK EVERY CHAIN</h4>
+        <audio controls><source src="audio/song14.mp3" type="audio/mpeg"></audio>
+      </div>
+    </div>
+  </section>
+
+    
+
+  <div class="scene-container" style="justify-content: center;">
+    <img src="images/image18.jpg" alt="Finale image" style="max-width: 80%;">
+  </div>
+
+  <div style="margin-top: 60px;">
+    <a href="assets/Shelter_from_the_Noise_Script.pdf" class="download-btn" download>Download the Full Script</a>
+    <a href="javascript:void(0)" class="download-btn" onclick="openSlideshow()">The Real Band</a>
+  </div>
+
+  <div id="imageModal" class="image-modal" onclick="closeImage()">
+    <img id="modalImage" src="" alt="Full screen image">
+    <div id="slideshowControls" style="display:none;">
+      <div class="modal-nav">
+        <button class="nav-arrow" onclick="changeSlide(-1); event.stopPropagation();">❮</button>
+        <button class="nav-arrow" onclick="changeSlide(1); event.stopPropagation();">❯</button>
+      </div>
+      <div class="slide-counter" id="counter"></div>
+    </div>
+  </div>
+
+  <script>
+    const realBandImages = [
+      'images/band01.jpg', 
+      'images/band02.jpg',
+      'images/band03.jpg',
+      'images/band04.jpg'
+    ];
+
+    let currentSlideIndex = 0;
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const controls = document.getElementById('slideshowControls');
+    const counter = document.getElementById('counter');
+
+    function openImage(src) {
+      controls.style.display = 'none';
+      modalImg.src = src;
+      modal.style.display = 'flex';
+    }
+
+    function openSlideshow() {
+      currentSlideIndex = 0; // Always start at the first image
+      updateSlideshow();
+      controls.style.display = 'block';
+      modal.style.display = 'flex';
+    }
+
+    function updateSlideshow() {
+      modalImg.src = realBandImages[currentSlideIndex];
+      counter.innerText = `${currentSlideIndex + 1} / ${realBandImages.length}`;
+    }
+
+    function changeSlide(direction) {
+      // Adding the direction to the index
+      currentSlideIndex += direction;
+      
+      // If we go past the last image, go back to the first
+      if (currentSlideIndex >= realBandImages.length) {
+        currentSlideIndex = 0;
+      }
+      // If we go back past the first image, go to the last
+      if (currentSlideIndex < 0) {
+        currentSlideIndex = realBandImages.length - 1;
+      }
+      
+      updateSlideshow();
+    }
+
+    function closeImage() {
+      modal.style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.scene-container img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => openImage(img.src));
+      });
+    });
+  </script>
+<a href="mailto:tommybraaten@rocketmail.com" class="download-btn">
+  Contact Me
+</a>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shelter from the Noise – Start</title>
+  <style>
+    /* Full-screen neon background */
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #000000, #111111);
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4em;
+      color: #ff0080;
+      text-shadow: 0 0 10px #ff0080, 0 0 20px #ff66cc, 0 0 30px #00bfff;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 60px;
+      color: #00bfff;
+      text-shadow: 0 0 8px #00bfff;
+    }
+
+    .start-btn {
+      display: inline-block;
+      padding: 20px 50px;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(90deg, #ff0080, #00bfff);
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff66cc, 0 0 30px #00bfff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px #00bfff, 0 0 30px #ff66cc;
+    }
+
+    /* Optional animated neon flicker */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 22%, 24%, 55% { opacity: 0.6; }
+    }
+
+    h1 {
+      animation: flicker 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shelter from the Noise</h1>
+  <p>A New Rock Musical – Click below to begin</p>
+  <a class="start-btn" href="index.html">Start Presentation</a>
+</body>
+</html>
